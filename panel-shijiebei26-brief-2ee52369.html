@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>杂志专题 · 世界杯阅览室</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', 'PingFang SC', Roboto, 'Helvetica Neue', sans-serif;
+      background-color: #f4f3ef;
+      color: #2c2b28;
+      line-height: 1.7;
+    }
+
+    /* ---------- 深色头图 hero ---------- */
+    .hero {
+      background: linear-gradient(145deg, #10141a 0%, #1f262e 100%);
+      color: #eae7de;
+      padding: 5rem 2rem 4rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      box-shadow: inset 0 -2px 8px rgba(0,0,0,0.2);
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: -60%;
+      left: -20%;
+      width: 140%;
+      height: 140%;
+      background: radial-gradient(circle at 70% 30%, rgba(200, 170, 100, 0.04) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 400;
+      letter-spacing: 4px;
+      margin-bottom: 0.75rem;
+      color: #e6dccb;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.5);
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero .subhead {
+      font-size: 1.15rem;
+      font-weight: 300;
+      color: #b6afa0;
+      max-width: 640px;
+      margin: 0 auto;
+      border-top: 1px solid #3d403b;
+      padding-top: 1.2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero .subhead span {
+      background: #2d322d;
+      padding: 0.1rem 0.6rem;
+      border-radius: 2px;
+      font-size: 0.85rem;
+      margin-right: 0.3rem;
+    }
+
+    /* ---------- 浅色正文区 ---------- */
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 2.5rem;
+      background: #fcfbf9;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 450;
+      border-left: 5px solid #b8956a;
+      padding-left: 1rem;
+      margin: 2.5rem 0 1.2rem 0;
+      color: #2f373c;
+      letter-spacing: 1px;
+    }
+
+    .section-title:first-of-type {
+      margin-top: 0;
+    }
+
+    .intro-text {
+      margin-bottom: 1.8rem;
+      font-size: 1.02rem;
+    }
+
+    .card-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.8rem;
+      margin: 2rem 0 2.5rem;
+    }
+
+    .card {
+      background: #f7f5f0;
+      border-radius: 12px;
+      padding: 1.8rem 1.6rem;
+      flex: 1 1 240px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+      border: 1px solid #e4dfd6;
+      transition: box-shadow 0.2s;
+    }
+
+    .card:hover {
+      box-shadow: 0 6px 18px rgba(0,0,0,0.07);
+    }
+
+    .card h3 {
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin-bottom: 0.6rem;
+      color: #38444b;
+      border-bottom: 1px dashed #d3ccc1;
+      padding-bottom: 0.3rem;
+    }
+
+    .card p {
+      font-size: 0.98rem;
+      color: #46433c;
+    }
+
+    .highlight-link {
+      color: #9e7b4f;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px solid #dccdb8;
+      padding-bottom: 1px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .highlight-link:hover {
+      color: #7a5d38;
+      border-bottom-color: #7a5d38;
+    }
+
+    .faq-block {
+      background: #f1eee7;
+      padding: 1.6rem 2rem;
+      border-radius: 14px;
+      margin: 2.8rem 0 2rem;
+      border-left: 4px solid #b8956a;
+    }
+
+    .faq-block summary {
+      font-weight: 500;
+      font-size: 1.08rem;
+      cursor: pointer;
+      color: #2f373c;
+      padding: 0.2rem 0;
+    }
+
+    .faq-block p {
+      margin-top: 0.8rem;
+      color: #3f3d37;
+    }
+
+    .faq-block a {
+      color: #9e7b4f;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    .footnote-area {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid #dfd8ce;
+      font-size: 0.95rem;
+      color: #5d5a51;
+      text-align: center;
+    }
+
+    .footnote-area a {
+      color: #9e7b4f;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .footnote-area a:hover {
+      text-decoration: underline;
+    }
+
+    /* ---------- 响应式 ---------- */
+    @media (max-width: 640px) {
+      .hero {
+        padding: 3rem 1.2rem 2.5rem;
+      }
+      .hero h1 {
+        font-size: 2.2rem;
+        letter-spacing: 2px;
+      }
+      .container {
+        padding: 2rem 1rem;
+      }
+      .card-grid {
+        gap: 1.2rem;
+      }
+      .section-title {
+        font-size: 1.3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 深色头图 -->
+  <header class="hero">
+    <h1>世界杯 · 专题手记</h1>
+    <div class="subhead">
+      <span>杂志整理</span> 从赛程查询到背景延伸，一本安静的世界杯参考页
+    </div>
+  </header>
+
+  <!-- 浅色正文 -->
+  <div class="container">
+
+    <!-- 第一段：日常查询与对照 -->
+    <h2 class="section-title">日常查询 · 赛历与对照</h2>
+    <p class="intro-text">
+      对于许多关注足球的读者来说，比赛日历、小组对阵以及积分变动是基础需求。<strong>世界杯</strong> 周期内信息密集，从资格赛到决赛日，每一阶段都牵动讨论。一个能集中查阅赛程、积分和实时数据的工具，可以节省大量碎片时间。将零散的信息聚合成统一的浏览入口，是提高信息获取效率的踏实做法。
+    </p>
+
+    <!-- 卡片式特点展示 -->
+    <div class="card-grid">
+      <div class="card">
+        <h3>赛程总览</h3>
+        <p>按日期与小组排列的比赛时间表，同时标注转播时区对照，方便快速定位下一场焦点战。</p>
+      </div>
+      <div class="card">
+        <h3>积分 &amp; 统计</h3>
+        <p>小组排名、进球、助攻、控球率等常规统计项，适合赛后复盘或横向比较球队状态。</p>
+      </div>
+      <div class="card">
+        <h3>延伸阅读</h3>
+        <p>每轮结束后整理的战报摘要、战术简析以及背景资料，帮助理解比赛之外的脉络。</p>
+      </div>
+    </div>
+
+    <!-- 第二段：延伸阅读与背景信息 -->
+    <h2 class="section-title">延伸阅读 · 背景与脉络</h2>
+    <p class="intro-text">
+      一场比赛的结果往往与球队近期的变化、伤病名单、历史交锋甚至气候因素相关。在信息页面中，除了基础数据，不少读者还会花时间翻阅历届冠军、主办城市介绍、经典比赛回顾等内容。这种“边查边读”的习惯，逐渐让资料页变成了一座微型的知识角。<br><br>
+      在<a href="https://panel-shijiebei26.com" class="highlight-link">世界杯</a>专题下，数据的陈列方式也直接影响理解：小组出线形势用表格还是可视化图形？历史战绩如何快速对比？这些细节决定了读者能多快地建立认知。好的信息页面会克制地呈现，把解释空间留给数据本身。
+    </p>
+
+    <!-- 第三段：场景提醒与 FAQ 摘要 -->
+    <h2 class="section-title">使用场景 · 查与读之间</h2>
+    <p class="intro-text">
+      有人习惯在比赛前打开页面，看一眼预计首发和天气；有人则在赛后对照数据，验证自己的观赛感受。也有人会把这里当作安静的资料库，在休赛日逐条浏览球队背景。无论哪一种，信息本身不需要喧哗——稳定、清晰、有逻辑，就是最好的体验。
+    </p>
+
+    <!-- FAQ 摘要（非完整，只给一个示例） -->
+    <div class="faq-block">
+      <details>
+        <summary>📖 常见疑问摘要 · 数据时效与范围</summary>
+        <p>本专题展示的信息基于公开赛程与统计，更新频次随比赛日调整。数据源会尽量保持同步，但极端情况下可能存在延迟。如果发现明显出入，可以返回主页面刷新查看。所有资料仅供个人参考，不构成投注建议或官方公告。如需最权威信息，请以<span class="highlight-link">世界杯</span>官方渠道为准。</p>
+      </details>
+    </div>
+
+    <!-- 页尾访问提示，自然嵌入链接 -->
+    <div class="footnote-area">
+      <p>如果你正在寻找一个集中对照赛程与数据的地方，可以试试收藏 <a href="https://panel-shijiebei26.com">世界杯</a> 专题页面。它保持简洁，把注意力留给比赛本身。</p>
+      <p style="margin-top: 0.6rem; font-size: 0.85rem; color: #8a857b;">— 杂志手记 · 2026 专题版 —</p>
+    </div>
+
+  </div>
+</body>
+</html>
